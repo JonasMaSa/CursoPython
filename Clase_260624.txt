@@ -1,0 +1,74 @@
+from sympy import symbols, limit, sin
+
+x = symbols('x')
+limit(sin(x)/x, x, 0)
+
+from sympy import symbols, limit, sin
+import math
+
+x = symbols('x')
+limit(( 1- 2*sin(x))/(math.pi -6*x), x, math.pi/6)
+
+import sympy
+
+x = symbols('x')
+dx = diff(sin(x)/x, x)
+print(f' La derivada en 4 es {dx.subs(x, 4)}={dx.subs(x, 4).evalf()}')
+
+from sympy import symbols, diff, exp, ln
+
+
+x = symbols('x')
+diff(ln((4 ** (7 * x **2 ))/(5 * exp (3 * x ** 5))), x)
+
+from sympy import symbols, integrate, sin
+from sympy.plotting import plot
+
+x = symbols('x')
+
+plot(sin(x), (x,-1,1))
+
+integrate(sin(x), x)
+
+from sympy import symbols, integrate, sqrt
+from sympy.plotting import plot
+
+x = symbols('x')
+
+plot((1 - x)/(sqrt(2 - x)), (x,-100,100))
+
+integrate((1 - x)/(sqrt(2 - x)), x)
+
+import numpy as np
+import matplotlib.pyplot as pl
+
+paso = .01
+p = np.arange(-1,1,paso)
+
+ft = np.sin(np.sqrt(3)*p)*np.tan(p)
+
+pl.plot(p, ft, 'r')
+pl.fill_between(p,ft,color=(1,.616,0,.459))
+pl.title("sin[3^(1/2)t]tan[t]")
+pl.show()
+
+AreaFt = np.sum(paso*ft)
+
+print("El area bajo la curva es:", AreaFt)
+
+import math
+fx = []
+area2 = 0
+def fun1(x):
+  return math.sin(math.sqrt(3)*x)*math.tan(x)
+
+for h in p:
+    y = fun1(h)
+    fx.append(y)
+    area2 += paso*y
+
+fig, ax = pl.subplots()
+ax.plot(p,fx)
+ax.fill_between(p,ft,color=(1, 0.984, 0, .459))
+
+print('El area bajo la curva con ciclos es:', area2)
